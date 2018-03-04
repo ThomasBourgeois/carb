@@ -643,12 +643,12 @@ export class PlaneCoef extends React.Component {
                                   <div id="travel" className="collapse show">
                                     <p className="questions mt-3 mb-4">Each year, I travel ... </p>
                                     <div className="row questions mt-3 mb-4">
-                                      <div class="col-12">
+                                      <div className="col-12">
                                         <BusCoef onChange={this.changeBusCoef}/> kms by bus
                                       </div>
                                     </div>
                                     <div className="row questions mt-3 mb-4">
-                                      <div className="col-3">
+                                      <div className="col">
                                         <SubCoef onChange={this.changeSubCoef}/> kms by subway
                                       </div>
                                     </div>
