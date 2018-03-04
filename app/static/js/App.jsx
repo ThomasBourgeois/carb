@@ -57,12 +57,12 @@ class TwoLevelPieChart extends React.Component{
     this.state = {
       innerRadius:$(window).width()< 576?60:70,
       outerRadius:$(window).width()< 576?70:80,
-      cx:($(window).width()< 991?180:($(window).width()<1190?200:280))
+      cx:($(window).width()< 991?190:($(window).width()<1190?200:280))
     };
     this.updateRadiuses = this.updateRadiuses.bind(this);
   }
   updateRadiuses() {
-    this.setState({innerRadius: $(window).width()< 576?60:70, outerRadius: $(window).width()< 576?70:80,cx: $(window).width()< 991?180:($(window).width()<1190?200:280)});
+    this.setState({innerRadius: $(window).width()< 576?60:70, outerRadius: $(window).width()< 576?70:80,cx: $(window).width()< 991?190:($(window).width()<1190?200:280)});
   }
   componentDidMount() {
     window.addEventListener("resize", this.updateRadiuses);
@@ -642,7 +642,12 @@ export class PlaneCoef extends React.Component {
                                   {/*questions*/}
                                   <div id="travel" className="collapse show">
                                     <p className="questions mt-3 mb-4">Each year, I travel ... </p>
-                                    <p className="questions mt-3 mb-4"><BusCoef onChange={this.changeBusCoef}/> kms by bus</p>
+                                    <div className="row questions mt-3 mb-4">
+                                      <div class="col-12">
+                                        <BusCoef onChange={this.changeBusCoef}/> kms by bus
+                                      </div>
+
+                                    </div>
                                     <p className="questions mt-3 mb-4"><SubCoef onChange={this.changeSubCoef}/> kms by subway</p>
                                     <p className="questions mt-3 mb-4"><CarCoef onChange={this.changeCarCoef}/> kms by car</p>
                                     <p className="questions mt-3 mb-4"><TrainCoef onChange={this.changeTrainCoef}/> kms by train</p>
