@@ -654,7 +654,7 @@ export class PlaneCoef extends React.Component {
                                         <div className="col-3">
                                           <SubCoef onChange={this.changeSubCoef}/>
                                         </div>
-                                        <div className="col-9 ">&nbsp;kms by subway</div>
+                                        <div className="col-9 ">&nbsp;kms by subwayy</div>
                                       </div>
                                     </form>
                                     <p className="questions mt-3 mb-4"><CarCoef onChange={this.changeCarCoef}/> kms by car</p>
