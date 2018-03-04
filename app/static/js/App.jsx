@@ -650,10 +650,11 @@ export class PlaneCoef extends React.Component {
                                       </div>
                                     </div>
                                     <form>
-                                      <div className="form-group row questions mt-3 mb-4">
-                                        <div className="col">
-                                          <SubCoef onChange={this.changeSubCoef}/> kms by subway
+                                      <div className="form-group row questions mt-3 mb-4 no-gutters align-items-center">
+                                        <div className="col-3">
+                                          <SubCoef onChange={this.changeSubCoef}/>
                                         </div>
+                                        <div className="col-9 ">&nbsp;kms by subway</div>
                                       </div>
                                     </form>
                                     <p className="questions mt-3 mb-4"><CarCoef onChange={this.changeCarCoef}/> kms by car</p>
