@@ -303,6 +303,7 @@ export class PlaneCoef extends React.Component {
           return (
             <div className="">
               <input
+                className="form-control"
                 type="text"
                 onChange={this.handleChangeSubKms}
                 value={this.state.subKms}/>
@@ -642,16 +643,19 @@ export class PlaneCoef extends React.Component {
                                   {/*questions*/}
                                   <div id="travel" className="collapse show">
                                     <p className="questions mt-3 mb-4">Each year, I travel ... </p>
+
                                     <div className="row questions mt-3 mb-4">
                                       <div className="col-12">
                                         <BusCoef onChange={this.changeBusCoef}/> kms by bus
                                       </div>
                                     </div>
-                                    <div className="row questions mt-3 mb-4">
-                                      <div className="col">
-                                        <SubCoef onChange={this.changeSubCoef}/> kms by subway
+                                    <form>
+                                      <div className="form-group row questions mt-3 mb-4">
+                                        <div className="col">
+                                          <SubCoef onChange={this.changeSubCoef}/> kms by subway
+                                        </div>
                                       </div>
-                                    </div>
+                                    </form>
                                     <p className="questions mt-3 mb-4"><CarCoef onChange={this.changeCarCoef}/> kms by car</p>
                                     <p className="questions mt-3 mb-4"><TrainCoef onChange={this.changeTrainCoef}/> kms by train</p>
                                     <p className="questions mt-3 mb-4"><PlaneCoef onChange={this.changePlaneCoef}/> kms by plane</p>
