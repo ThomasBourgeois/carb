@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Carb</title>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/font-awesome.min.css') }}">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}">
+  <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Dekko' rel='stylesheet'>
+
+</head>
+<body>
+
+
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container">
+      <a href="{{ url_for('main.index') }}" class="navbar-brand">Carb</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item px-2">
+            <a href="{{ url_for('main.index') }}" class="nav-link">{{ _('Home') }}</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="{{ url_for('main.explore') }}" class="nav-link">{{ _('Explore') }}</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+          {% if current_user.is_anonymous %}
+          <li class="nav-item">
+            <a href="{{ url_for('auth.login') }}" class="nav-link">
+              <i class="fa fa-user-circle"></i> {{ _('Login') }}
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a href="{{ url_for('main.user', username=current_user.username) }}" class="nav-link">
+              <i class="fa fa-user-circle"></i> {{ _('Profile') }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('auth.logout') }}" class="nav-link">
+              <i class="fa fa-user-times"></i> {{ _('Logout') }}
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+    <div id="wrapper" class="container mb-5">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-primary mt-2" role="alert">{{ message }}</div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      {# application content needs to be provided in the app_content block #}
+      {% block app_content %}{% endblock %}
+    </div>
+
+
+
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+
+    <div class="footer">
+
+        <p class=" text-center"> &copy; 2018 Carb</p>
+
+    </div>
+
+
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+
+
+  <script src="{{ url_for('static',filename='dist/bundle.js') }}"></script>
+  <script>
+  $('.port-item').click(function(){
+    $('.collapse').collapse('hide');
+  });
+  </script>
+
+
+</body>
+</html>
