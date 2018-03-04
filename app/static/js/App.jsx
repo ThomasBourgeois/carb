@@ -301,7 +301,7 @@ export class PlaneCoef extends React.Component {
 
         render() {
           return (
-            <div className="d-inline">
+            <div className="">
               <input
                 type="text"
                 onChange={this.handleChangeSubKms}
